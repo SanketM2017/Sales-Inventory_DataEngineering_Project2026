@@ -1,0 +1,9 @@
+{
+	"name": "adf-sales-sanket",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "572734ea-beab-4a5e-acca-7027a69f476b",
+		"tenantId": "bcf1734f-67a9-4df1-85e5-408063eeea71"
+	}
+}
