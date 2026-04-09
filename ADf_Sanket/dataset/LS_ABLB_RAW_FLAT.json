@@ -5,11 +5,6 @@
 			"referenceName": "ABLB_Blob_RAW_FLAT",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"Name": {
-				"type": "string"
-			}
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
