@@ -1,0 +1,42 @@
+{
+	"name": "DS_SQL_METADATA",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SRC_SQL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Watermark_ID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "SourceSystem",
+				"type": "varchar"
+			},
+			{
+				"name": "Table_Name",
+				"type": "varchar"
+			},
+			{
+				"name": "LastProcessedValue",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "ProcessedTime",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "WatermarkTable"
+		}
+	}
+}

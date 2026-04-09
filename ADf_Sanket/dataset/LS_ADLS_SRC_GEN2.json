@@ -1,0 +1,32 @@
+{
+	"name": "LS_ADLS_SRC_GEN2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SRC_Gen2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "RAW",
+				"fileSystem": "adlssalesprojectsanket"
+			},
+			"columnDelimiter": "|",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "ORDER_METHOD_CODE",
+				"type": "String"
+			},
+			{
+				"name": "ORDER_METHOD_EN",
+				"type": "String"
+			}
+		]
+	}
+}

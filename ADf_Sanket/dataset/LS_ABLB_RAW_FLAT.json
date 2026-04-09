@@ -1,0 +1,37 @@
+{
+	"name": "LS_ABLB_RAW_FLAT",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ABLB_Blob_RAW_FLAT",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "Source",
+				"container": "source"
+			},
+			"columnDelimiter": "|",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "ORDER_METHOD_CODE",
+				"type": "String"
+			},
+			{
+				"name": "ORDER_METHOD_EN",
+				"type": "String"
+			}
+		]
+	}
+}
