@@ -442,16 +442,16 @@
 												},
 												"userProperties": [],
 												"typeProperties": {
-													"storedProcedureName": "[[dbo].[usp_UpdateFileWatermark]",
+													"storedProcedureName": "[[dbo].[UpdateWatermark]",
 													"storedProcedureParameters": {
 														"Table_Name": {
 															"value": {
-																"value": "@item().Watermark_Table",
+																"value": "@item().name",
 																"type": "Expression"
 															},
 															"type": "String"
 														},
-														"LastModified ": {
+														"LastProcessedValue": {
 															"value": {
 																"value": "@activity('ACT_GEN_META_FILE2').output.lastModified",
 																"type": "Expression"
