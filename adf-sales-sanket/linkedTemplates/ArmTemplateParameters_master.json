@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-sales-sanket"
+		},
+		"ABLB_Blob_RAW_FLAT_connectionString": {
+			"value": ""
+		},
+		"LS_SRC_Gen2_accountKey": {
+			"value": ""
+		},
+		"LS_SRC_SQL_password": {
+			"value": ""
+		},
+		"LS_SRC_Gen2_properties_typeProperties_url": {
+			"value": "https://blobsalessanket.dfs.core.windows.net/"
+		},
+		"LS_SRC_SQL_properties_typeProperties_server": {
+			"value": "pcserver7284.database.windows.net"
+		},
+		"LS_SRC_SQL_properties_typeProperties_database": {
+			"value": "ASQL_SalesProject_Sanket"
+		},
+		"LS_SRC_SQL_properties_typeProperties_userName": {
+			"value": "sanket"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
