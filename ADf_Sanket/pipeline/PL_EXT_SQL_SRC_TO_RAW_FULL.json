@@ -1,5 +1,5 @@
 {
-	"name": "pipeline1",
+	"name": "PL_EXT_SQL_SRC_TO_RAW_FULL",
 	"properties": {
 		"activities": [
 			{
