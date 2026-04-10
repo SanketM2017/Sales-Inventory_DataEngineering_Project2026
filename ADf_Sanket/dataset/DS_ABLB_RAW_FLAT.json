@@ -1,0 +1,23 @@
+{
+	"name": "DS_ABLB_RAW_FLAT",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ABLB_Blob_RAW_FLAT",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "Source",
+				"container": "source"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
