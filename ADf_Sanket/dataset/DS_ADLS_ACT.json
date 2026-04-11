@@ -10,13 +10,12 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": {
-					"value": "RAW",
-					"type": "Expression"
-				},
+				"folderPath": "RAW",
 				"fileSystem": "adlssalesprojectsanket"
 			},
-			"columnDelimiter": ",",
+			"columnDelimiter": "|",
+			"compressionCodec": null,
+			"compressionLevel": "Optimal",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""

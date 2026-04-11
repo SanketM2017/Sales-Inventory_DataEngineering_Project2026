@@ -10,8 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "RAW",
-				"fileSystem": "adlssalesprojectsanket"
+				"folderPath": "Source",
+				"fileSystem": "source"
 			},
 			"columnDelimiter": "|",
 			"escapeChar": "No escape character",

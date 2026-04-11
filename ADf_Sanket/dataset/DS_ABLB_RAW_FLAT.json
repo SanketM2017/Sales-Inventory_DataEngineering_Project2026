@@ -13,7 +13,9 @@
 				"folderPath": "Source",
 				"container": "source"
 			},
-			"columnDelimiter": ",",
+			"columnDelimiter": "|",
+			"compressionCodec": null,
+			"compressionLevel": "Optimal",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
