@@ -1,0 +1,10 @@
+{
+	"name": "LS_SRC_onprimiceKEyvault",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://kv-salesproject-sanket.vault.azure.net/"
+		}
+	}
+}
