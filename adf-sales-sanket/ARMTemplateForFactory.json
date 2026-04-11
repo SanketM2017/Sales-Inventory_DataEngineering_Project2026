@@ -34,6 +34,10 @@
 		"LS_SRC_SQL_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "sanket"
+		},
+		"LS_SRC_onprimiceKEyvault_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://kv-salesproject-sanket.vault.azure.net/"
 		}
 	},
 	"variables": {
@@ -322,7 +326,7 @@
 						"type": "ForEach",
 						"dependsOn": [
 							{
-								"activity": "ACT_GEN_META_RAW_FLAT",
+								"activity": "ACT_GEN_META_SRC_FLATFILE",
 								"dependencyConditions": [
 									"Succeeded"
 								]
@@ -331,7 +335,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"items": {
-								"value": "@activity('ACT_GEN_META_RAW_FLAT').output.childItems",
+								"value": "@activity('ACT_GEN_META_SRC_FLATFILE').output.childItems",
 								"type": "Expression"
 							},
 							"isSequential": true,
@@ -355,10 +359,7 @@
 												"type": "AzureBlobStorageReadSettings",
 												"recursive": true,
 												"wildcardFolderPath": "Source",
-												"wildcardFileName": {
-													"value": "@item().name",
-													"type": "Expression"
-												},
+												"wildcardFileName": "*",
 												"enablePartitionDiscovery": false
 											},
 											"formatSettings": {
@@ -407,7 +408,7 @@
 						}
 					},
 					{
-						"name": "ACT_GEN_META_RAW_FLAT",
+						"name": "ACT_GEN_META_SRC_FLATFILE",
 						"type": "GetMetadata",
 						"dependsOn": [],
 						"policy": {
@@ -420,7 +421,7 @@
 						"userProperties": [],
 						"typeProperties": {
 							"dataset": {
-								"referenceName": "DS_ABLB_RAW_FLAT",
+								"referenceName": "LS_ADLS_SRC_GEN2",
 								"type": "DatasetReference",
 								"parameters": {}
 							},
@@ -428,7 +429,7 @@
 								"childItems"
 							],
 							"storeSettings": {
-								"type": "AzureBlobStorageReadSettings",
+								"type": "AzureBlobFSReadSettings",
 								"recursive": true,
 								"enablePartitionDiscovery": false
 							},
@@ -447,6 +448,7 @@
 				"annotations": []
 			},
 			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/LS_ADLS_SRC_GEN2')]",
 				"[concat(variables('factoryId'), '/datasets/DS_ABLB_RAW_FLAT')]",
 				"[concat(variables('factoryId'), '/datasets/DS_ADLS_ACT')]"
 			]
@@ -468,7 +470,9 @@
 						"folderPath": "Source",
 						"container": "source"
 					},
-					"columnDelimiter": ",",
+					"columnDelimiter": "|",
+					"compressionCodec": null,
+					"compressionLevel": "Optimal",
 					"escapeChar": "\\",
 					"firstRowAsHeader": true,
 					"quoteChar": "\""
@@ -493,13 +497,12 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": {
-							"value": "RAW",
-							"type": "Expression"
-						},
+						"folderPath": "RAW",
 						"fileSystem": "adlssalesprojectsanket"
 					},
-					"columnDelimiter": ",",
+					"columnDelimiter": "|",
+					"compressionCodec": null,
+					"compressionLevel": "Optimal",
 					"escapeChar": "\\",
 					"firstRowAsHeader": true,
 					"quoteChar": "\""
@@ -608,8 +611,8 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"folderPath": "RAW",
-						"fileSystem": "adlssalesprojectsanket"
+						"folderPath": "Source",
+						"fileSystem": "source"
 					},
 					"columnDelimiter": "|",
 					"escapeChar": "No escape character",
@@ -683,6 +686,29 @@
 						"alwaysEncryptedAkvAuthType": "ManagedIdentity"
 					}
 				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_SRC_onprimiceKEyvault')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureKeyVault",
+				"typeProperties": {
+					"baseUrl": "[parameters('LS_SRC_onprimiceKEyvault_properties_typeProperties_baseUrl')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/integrationRuntimeOnPrem')]",
+			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "SelfHosted",
+				"typeProperties": {}
 			},
 			"dependsOn": []
 		}

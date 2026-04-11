@@ -26,6 +26,9 @@
 		"LS_SRC_SQL_properties_typeProperties_userName": {
 			"value": "sanket"
 		},
+		"LS_SRC_onprimiceKEyvault_properties_typeProperties_baseUrl": {
+			"value": "https://kv-salesproject-sanket.vault.azure.net/"
+		},
 		"containerUri": {
 			"value": ""
 		},
