@@ -1,5 +1,5 @@
 {
-	"name": "LS_ABLB_RAW_FLAT",
+	"name": "DS_SOURCE_FILES",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "ABLB_Blob_RAW_FLAT",
@@ -10,10 +10,14 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().name",
+					"type": "Expression"
+				},
 				"folderPath": "RAW",
 				"container": "adlssalesprojectsanket"
 			},
-			"columnDelimiter": ",",
+			"columnDelimiter": "|",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
