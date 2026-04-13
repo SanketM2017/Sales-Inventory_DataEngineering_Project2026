@@ -11,6 +11,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ABLB_Blob_RAW_FLAT'"
 		},
+		"LS_ASDW_ASQL_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_ASDW_ASQL'"
+		},
 		"LS_SRC_Gen2_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_SRC_Gen2'"
@@ -18,6 +22,18 @@
 		"LS_SRC_SQL_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_SRC_SQL'"
+		},
+		"LS_ASDW_ASQL_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "pcserver7284.database.windows.net"
+		},
+		"LS_ASDW_ASQL_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "SALES"
+		},
+		"LS_ASDW_ASQL_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sanket"
 		},
 		"LS_SRC_Gen2_properties_typeProperties_url": {
 			"type": "string",
@@ -69,11 +85,23 @@
 					"ABLB_Blob_RAW_FLAT_connectionString": {
 						"value": "[parameters('ABLB_Blob_RAW_FLAT_connectionString')]"
 					},
+					"LS_ASDW_ASQL_password": {
+						"value": "[parameters('LS_ASDW_ASQL_password')]"
+					},
 					"LS_SRC_Gen2_accountKey": {
 						"value": "[parameters('LS_SRC_Gen2_accountKey')]"
 					},
 					"LS_SRC_SQL_password": {
 						"value": "[parameters('LS_SRC_SQL_password')]"
+					},
+					"LS_ASDW_ASQL_properties_typeProperties_server": {
+						"value": "[parameters('LS_ASDW_ASQL_properties_typeProperties_server')]"
+					},
+					"LS_ASDW_ASQL_properties_typeProperties_database": {
+						"value": "[parameters('LS_ASDW_ASQL_properties_typeProperties_database')]"
+					},
+					"LS_ASDW_ASQL_properties_typeProperties_userName": {
+						"value": "[parameters('LS_ASDW_ASQL_properties_typeProperties_userName')]"
 					},
 					"LS_SRC_Gen2_properties_typeProperties_url": {
 						"value": "[parameters('LS_SRC_Gen2_properties_typeProperties_url')]"

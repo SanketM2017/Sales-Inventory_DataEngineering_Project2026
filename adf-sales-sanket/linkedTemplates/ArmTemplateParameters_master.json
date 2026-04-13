@@ -8,11 +8,23 @@
 		"ABLB_Blob_RAW_FLAT_connectionString": {
 			"value": ""
 		},
+		"LS_ASDW_ASQL_password": {
+			"value": ""
+		},
 		"LS_SRC_Gen2_accountKey": {
 			"value": ""
 		},
 		"LS_SRC_SQL_password": {
 			"value": ""
+		},
+		"LS_ASDW_ASQL_properties_typeProperties_server": {
+			"value": "pcserver7284.database.windows.net"
+		},
+		"LS_ASDW_ASQL_properties_typeProperties_database": {
+			"value": "SALES"
+		},
+		"LS_ASDW_ASQL_properties_typeProperties_userName": {
+			"value": "sanket"
 		},
 		"LS_SRC_Gen2_properties_typeProperties_url": {
 			"value": "https://blobsalessanket.dfs.core.windows.net/"

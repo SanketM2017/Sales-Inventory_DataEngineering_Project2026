@@ -11,6 +11,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'ABLB_Blob_RAW_FLAT'"
 		},
+		"LS_ASDW_ASQL_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_ASDW_ASQL'"
+		},
 		"LS_SRC_Gen2_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'LS_SRC_Gen2'"
@@ -18,6 +22,18 @@
 		"LS_SRC_SQL_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'LS_SRC_SQL'"
+		},
+		"LS_ASDW_ASQL_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "pcserver7284.database.windows.net"
+		},
+		"LS_ASDW_ASQL_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "SALES"
+		},
+		"LS_ASDW_ASQL_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "sanket"
 		},
 		"LS_SRC_Gen2_properties_typeProperties_url": {
 			"type": "string",
@@ -53,6 +69,28 @@
 				"type": "AzureBlobStorage",
 				"typeProperties": {
 					"connectionString": "[parameters('ABLB_Blob_RAW_FLAT_connectionString')]"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/LS_ASDW_ASQL')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureSqlDatabase",
+				"typeProperties": {
+					"server": "[parameters('LS_ASDW_ASQL_properties_typeProperties_server')]",
+					"database": "[parameters('LS_ASDW_ASQL_properties_typeProperties_database')]",
+					"encrypt": "optional",
+					"trustServerCertificate": true,
+					"authenticationType": "SQL",
+					"userName": "[parameters('LS_ASDW_ASQL_properties_typeProperties_userName')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('LS_ASDW_ASQL_password')]"
+					}
 				}
 			},
 			"dependsOn": []
@@ -183,6 +221,43 @@
 			]
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/DS_SOURCE_FILES')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ABLB_Blob_RAW_FLAT",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"folderPath": "RAW",
+						"container": "adlssalesprojectsanket"
+					},
+					"columnDelimiter": "|",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "ORDER_METHOD_CODE",
+						"type": "String"
+					},
+					{
+						"name": "ORDER_METHOD_EN",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ABLB_Blob_RAW_FLAT')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/DS_SQL_METADATA')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -243,10 +318,10 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"folderPath": "Source",
-						"container": "source"
+						"folderPath": "RAW",
+						"container": "adlssalesprojectsanket"
 					},
-					"columnDelimiter": "|",
+					"columnDelimiter": ",",
 					"escapeChar": "\\",
 					"firstRowAsHeader": true,
 					"quoteChar": "\""
