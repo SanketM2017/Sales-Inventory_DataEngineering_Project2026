@@ -16,7 +16,7 @@
 			"columnDelimiter": "|",
 			"compressionCodec": null,
 			"compressionLevel": "Optimal",
-			"escapeChar": "\"",
+			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
