@@ -88,7 +88,7 @@ This project includes:
 - **Synapse Analytics**: Data integration and analytics.
 - **Azure SQL DB**: Gold-tier data storage.
 
-![Dev Environment](https://github.com/user-attachments/assets/aa004a59-5ec9-4738-9a7e-c5a69f23e1db)
+---![Dev Environment](https://github.com/user-attachments/assets/aa004a59-5ec9-4738-9a7e-c5a69f23e1db)
 
 ---
 
