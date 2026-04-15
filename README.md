@@ -52,7 +52,7 @@ This project includes:
 
 ## Architecture
 
-![Retail Architecture Diagram](https://github.com/potghanpramod13/Sales-Inventory-Data-Warehouse-Retail-Project/blob/31d32fe0c7a3d1a8d2c567309554df8d34122a5e/Retail%20Architecture%20Diagram.png)
+![Retail Architecture Diagram](Sales-Inventory-Data-Warehouse-Retail-Project/blob/31d32fe0c7a3d1a8d2c567309554df8d34122a5e/Retail%20Architecture%20Diagram.png)
 
 ### Components & Functions:
 | **Technology**          | **Functionality**                                  |
