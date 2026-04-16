@@ -1,0 +1,16 @@
+{
+	"name": "DS_SQL_SqlServerTable1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ASDW_ASQL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "ORDER_HEADER"
+		}
+	}
+}

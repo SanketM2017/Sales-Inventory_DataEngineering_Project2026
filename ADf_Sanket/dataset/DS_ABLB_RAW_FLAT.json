@@ -5,15 +5,30 @@
 			"referenceName": "ABLB_Blob_RAW_FLAT",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"FolderPath": {
+				"type": "string"
+			},
+			"FileName": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "Source",
-				"container": "source"
+				"fileName": {
+					"value": "@dataset().FileName",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().FolderPath",
+					"type": "Expression"
+				},
+				"container": "adlssalesprojectsanket"
 			},
-			"columnDelimiter": "|",
+			"columnDelimiter": ",",
 			"compressionCodec": null,
 			"compressionLevel": "Optimal",
 			"escapeChar": "\\",
