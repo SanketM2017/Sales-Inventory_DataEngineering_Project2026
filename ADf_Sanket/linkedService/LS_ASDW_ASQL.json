@@ -6,12 +6,12 @@
 		"type": "AzureSqlDatabase",
 		"typeProperties": {
 			"server": "pcserver7284.database.windows.net",
-			"database": "SALES",
+			"database": "ASQL_SalesProject_Sanket",
 			"encrypt": "optional",
 			"trustServerCertificate": true,
 			"authenticationType": "SQL",
 			"userName": "sanket",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDlCMEQ5Qjg1LTBBNjAtNEYzQi04RDlCLThCMzcyRTI5MTE4Ql85YTcwMmZhYi04NzExLTQ4MGMtOWQyYy0zNDM2NThlNjI4N2EiDQp9"
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDlCMEQ5Qjg1LTBBNjAtNEYzQi04RDlCLThCMzcyRTI5MTE4Ql8wMTEzNWMyYi1jNTAxLTRjODEtYjk2Zi0wN2U1ODIxNTQzMDAiDQp9"
 		}
 	}
 }
